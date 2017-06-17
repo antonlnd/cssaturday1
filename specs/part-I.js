@@ -18,14 +18,14 @@ const FQL = require('../source/fql');
 
 describe("Part I: bedrock", function () {
 
-  xit("`Table` is a constructor that takes a folder path (don't worry about it too much yet)", function () {
+  it("`Table` is a constructor that takes a folder path (don't worry about it too much yet)", function () {
     // this spec should already be passing (check out the file ../source/table.js)
     expect(Table).to.be.a('function');
     const movieTable = new Table('film-database/movies-table');
     expect(movieTable).to.be.an.instanceOf(Table);
   });
 
-  xit("`Table.toFilename` converts an ID to a JSON filename", function () {
+  it("`Table.toFilename` converts an ID to a JSON filename", function () {
     // notice this method is `Table.toFilename`, not `Table.prototype.toFilename`
     // this is what we might call a "static method" or a "class method" (http://javascript.info/tutorial/static-variables-methods-decorators#static-methods)
     expect(Table.toFilename).to.be.a('function');
@@ -35,7 +35,7 @@ describe("Part I: bedrock", function () {
     expect(Table.toFilename('0007')).to.equal('0007.json');
   });
 
-  xit("`Table.toId` converts a filename to an ID (no extension)", function () {
+  it("`Table.toId` converts a filename to an ID (no extension)", function () {
     expect(Table.toId).to.be.a('function');
     expect(Table.toId('4444.json')).to.equal('4444');
     expect(Table.toId('0333.json')).to.equal('0333');
@@ -43,7 +43,7 @@ describe("Part I: bedrock", function () {
     expect(Table.toId('0001.json')).to.equal('0001');
   });
 
-  xit("`Table` instances (tables) can read from a folder, given an ID", function () {
+  it("`Table` instances (tables) can read from a folder, given an ID", function () {
     // HINT: check out `JSON.parse` (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
     expect(Table.prototype.read).to.be.a('function');
     const movieTable = new Table('film-database/movies-table');
